@@ -28,7 +28,7 @@ func (app *Config) Authenticate(w http.ResponseWriter, r *http.Request) {
 
 	valid, err := user.PasswordMatches(requestPayload.Password)
 	if err != nil || !valid {
-		app.errorJson(w, errors.New("invalid credentials"), http.StatusBadRequest)
+		app.errorJson(w, errors.New("invalid credentials"), http.StatusUnauthorized)
 		return
 	}
 
