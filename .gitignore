@@ -24,3 +24,5 @@ go.work
 /front-end/frontApp
 /project/db-data/postgres
 /authentication-service/authApp
+/project/db-data/mongo
+/logger-service/loggerServiceApp
