@@ -27,3 +27,4 @@ go.work
 /project/db-data/mongo
 /logger-service/loggerServiceApp
 /mail-service/mailerApp
+/project/db-data/rabbitmq/
