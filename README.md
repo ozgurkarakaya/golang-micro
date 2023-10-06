@@ -45,6 +45,10 @@ docker push ozgurrkarakaya/gm-listener-service:1.0.0
 //mail service : at mail service folder
 docker build -f Dockerfile -t ozgurrkarakaya/gm-mail-service:1.0.0 .
 docker push ozgurrkarakaya/gm-mail-service:1.0.0
+
+//frontend : at front-end folder
+docker build -f Dockerfile -t ozgurrkarakaya/gm-front-end:1.0.0 .
+docker push ozgurrkarakaya/gm-front-end:1.0.0
 ```
 
 ###Docker Swarm

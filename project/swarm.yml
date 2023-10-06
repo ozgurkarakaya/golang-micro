@@ -1,6 +1,12 @@
 version: '3'
 
 services:
+  front-end:
+    image: ozgurrkarakaya/gm-front-end:1.0.0
+    deploy:
+      mode: replicated
+      replicas: 1
+
   broker-service:
     image: ozgurrkarakaya/gm-broker-service:1.0.0
     deploy:
