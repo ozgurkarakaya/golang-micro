@@ -47,8 +47,8 @@ docker build -f Dockerfile -t ozgurrkarakaya/gm-mail-service:1.0.0 .
 docker push ozgurrkarakaya/gm-mail-service:1.0.0
 
 //frontend : at front-end folder
-docker build -f Dockerfile -t ozgurrkarakaya/gm-front-end:1.0.0 .
-docker push ozgurrkarakaya/gm-front-end:1.0.0
+docker build -f Dockerfile -t ozgurrkarakaya/gm-front-end:1.0.1 .
+docker push ozgurrkarakaya/gm-front-end:1.0.1
 ```
 
 ###Docker Swarm
