@@ -61,4 +61,31 @@ docker stack deploy -c swarm.yml myapp
 
 //list services and check replica count
 docker service ls
+
+//scale service
+docker service scale myapp_listener-service=2
+//to scale down
+docker service scale myapp_listener-service=1
+
+//update a service with new code, e.g. loggler service, at logger service folder
+make build_logger //update binary
+docker build -f  Dockerfile -t ozgurrkarakaya/gm-logger-service:1.0.1 .
+docker push ozgurrkarakaya/gm-logger-service:1.0.1
+
+//scale service to prevent down time
+docker service scale myapp_logger-service=2
+//update docker to new version
+docker service update --image ozgurrkarakaya/gm-logger-service:1.0.1 myapp_logger-service
+//rollback
+docker service update --image ozgurrkarakaya/gm-logger-service:1.0.0 myapp_logger-service
+
+//stop docker swarm : scale down individually
+docker service scale myapp_broker-service=0
+//remove docker swarm project
+docker stack rm myapp
+
+//remove swarm from that machine entirely
+docker swarm leave
+docker swarm leave --force
+
 ```
