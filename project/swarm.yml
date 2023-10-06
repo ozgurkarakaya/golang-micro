@@ -1,11 +1,25 @@
 version: '3'
 
 services:
+
+  caddy:
+    image: ozgurrkarakaya/gm-micro-caddy:1.0.0
+    deploy:
+      mode: replicated
+      replicas: 1
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+
   front-end:
     image: ozgurrkarakaya/gm-front-end:1.0.0
     deploy:
       mode: replicated
       replicas: 1
+    restart: on-failure
 
   broker-service:
     image: ozgurrkarakaya/gm-broker-service:1.0.0
@@ -77,7 +91,6 @@ services:
     image: 'postgres:14.2'
     ports:
       - "5432:5432"
-    restart: always
     deploy:
       mode: replicated
       replicas: 1
@@ -87,3 +100,10 @@ services:
       POSTGRES_DB: users
     volumes:
       - ./db-data/postgres/:/var/lib/postgresql/data/
+
+
+volumes:
+  caddy_data:
+    external: true
+  caddy_config:
+

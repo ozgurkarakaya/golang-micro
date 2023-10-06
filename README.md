@@ -93,3 +93,16 @@ docker swarm leave
 docker swarm leave --force
 
 ```
+
+## Web Server
+```
+docker build -f caddy.dockerfile -t ozgurrkarakaya/gm-micro-caddy:1.0.0 .
+docker push ozgurrkarakaya/gm-micro-caddy:1.0.0
+
+//adding backend:80 similar to localhost:80
+sudo vi /etc/hosts
+
+docker swarm init
+docker stack deploy -c swarm.yml myapp
+
+```
