@@ -127,6 +127,9 @@ kubectl get pods -A
 
 ## Kubernetes config and run:
 ```
+kubectl create secret docker-registry regcred --docker-server=https://index.docker.io/v1/ --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
+kubectl get secrets
+
 //created k8s folder and mongo.yml file at project folder
 //in project folder run the command
 kubectl apply -f k8s
@@ -134,5 +137,19 @@ kubectl get pods //mongo pod will be running
 minikube dashboard //to check deployments and pods 
 
 kubectl get svc //list services
-kubectl get deployments //list deployments 
+kubectl get deployments //list deployments
+
+kubectl apply -f k8s/rabbit.yml //run new rabbit.yml file
+kubectl apply -f k8s/broker.yml
+
+```
+
+## Kubernetes troubleshooting:
+```
+kubectl get pods
+kubectl logs broker-service-54ccc98d6b-db5k5
+kubectl get deployments
+kubectl delete deployments broker-service mongo rabbitmq
+kubectl get svc
+kubectl delete svc broker-service mongo rabbitmq
 ```
