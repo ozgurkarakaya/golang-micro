@@ -129,6 +129,7 @@ kubectl get pods -A
 ```
 kubectl create secret docker-registry regcred --docker-server=https://index.docker.io/v1/ --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
 kubectl get secrets
+kubectl delete secrets regcred
 
 //created k8s folder and mongo.yml file at project folder
 //in project folder run the command
@@ -140,6 +141,8 @@ kubectl get svc //list services
 kubectl get deployments //list deployments
 
 kubectl apply -f k8s/rabbit.yml //run new rabbit.yml file
+
+minikube cache add ozgurrkarakaya/gm-broker-service:1.0.0
 kubectl apply -f k8s/broker.yml
 
 ```

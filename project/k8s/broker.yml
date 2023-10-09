@@ -15,6 +15,7 @@ spec:
       containers:
         - name: broker-service
           image: "ozgurrkarakaya/gm-broker-service:1.0.0"
+          imagePullPolicy: Never
           resources:
             requests:
               memory: "64Mi"
@@ -23,9 +24,8 @@ spec:
               memory: "128Mi"
               cpu: "500m"
           ports:
-            - containerPort: 8081
-      imagePullSecrets:
-        - name: regcred
+            - containerPort: 8080
+
 
 ---
 
@@ -39,5 +39,5 @@ spec:
   ports:
     - protocol: TCP
       name: main-port
-      port: 8081
-      targetPort: 8081
+      port: 8080
+      targetPort: 8080
