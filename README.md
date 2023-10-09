@@ -153,6 +153,12 @@ kubectl apply -f k8s/logger.yml
 minikube image load ozgurrkarakaya/gm-mail-service:1.0.0
 kubectl apply -f k8s/mail.yml
 
+minikube image load ozgurrkarakaya/gm-listener-service:1.0.0
+kubectl apply -f k8s/listener.yml
+
+minikube image load ozgurrkarakaya/gm-auth-service:1.0.0
+kubectl apply -f k8s/authentication.yml
+
 ```
 
 ## Kubernetes troubleshooting:
@@ -163,4 +169,11 @@ kubectl get deployments
 kubectl delete deployments broker-service mongo rabbitmq
 kubectl get svc
 kubectl delete svc broker-service mongo rabbitmq
+```
+
+## kubernetes & postgress
+```
+//Run postgres as a remote resource for k8s
+// at project folder run:
+docker compose -f postgres.yml up -d
 ```
