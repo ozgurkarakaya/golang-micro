@@ -195,3 +195,19 @@ minikube tunnel
 after running front end 
 kubectl delete svc broker-service
 ```
+
+## k8s ingress via nginx
+```
+//minikube enable ingress
+minikube addons enable ingress
+//define deployment file for ingress --> at project folder -> ingress.yml
+kubectl apply -f ingress.yml
+//monitor
+kubectl get ingress
+//update /etc/hosts file at macos
+sudo vi /etc/hosts  // add line at the end  -> 127.0.0.1 front-end.info broker-service.info
+//run minikube at tunnel
+minikube tunnel
+// at browser to access front-end go to: http://front-end.info/
+
+```
