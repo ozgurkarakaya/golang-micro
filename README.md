@@ -106,3 +106,33 @@ docker swarm init
 docker stack deploy -c swarm.yml myapp
 
 ```
+
+## Kubernetes installment
+```
+https://minikube.sigs.k8s.io/docs/start/
+brew install minikube
+brew install kubectl
+
+minikube start --node=2
+minikube status
+minikube stop
+minikube start
+
+minikube dashboard //redirects to k8s dashboard at browser -- ctrl+c to stop
+
+kubectl get pods
+kubectl get pods -A
+
+```
+
+## Kubernetes config and run:
+```
+//created k8s folder and mongo.yml file at project folder
+//in project folder run the command
+kubectl apply -f k8s
+kubectl get pods //mongo pod will be running
+minikube dashboard //to check deployments and pods 
+
+kubectl get svc //list services
+kubectl get deployments //list deployments 
+```
