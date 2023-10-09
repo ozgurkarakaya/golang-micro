@@ -145,6 +145,14 @@ kubectl apply -f k8s/rabbit.yml //run new rabbit.yml file
 minikube cache add ozgurrkarakaya/gm-broker-service:1.0.0
 kubectl apply -f k8s/broker.yml
 
+kubectl apply -f k8s/mailhog.yml
+
+minikube image load ozgurrkarakaya/gm-logger-service:1.0.1
+kubectl apply -f k8s/logger.yml
+
+minikube image load ozgurrkarakaya/gm-mail-service:1.0.0
+kubectl apply -f k8s/mail.yml
+
 ```
 
 ## Kubernetes troubleshooting:
