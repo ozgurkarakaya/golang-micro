@@ -25,7 +25,7 @@ go get google.golang.org/protobuf
 ```
 
 ### Docker Commands
-````
+```
 // logger service: at logger service folder
 docker build -f Dockerfile -t ozgurrkarakaya/gm-logger-service:1.0.0 .
 docker push ozgurrkarakaya/gm-logger-service:1.0.0
@@ -51,7 +51,7 @@ docker build -f Dockerfile -t ozgurrkarakaya/gm-front-end:1.0.1 .
 docker push ozgurrkarakaya/gm-front-end:1.0.1
 ```
 
-###Docker Swarm
+### Docker Swarm
 ```
 //at project folder where swarm.yml exists
 docker swarm init
@@ -159,6 +159,9 @@ kubectl apply -f k8s/listener.yml
 minikube image load ozgurrkarakaya/gm-auth-service:1.0.0
 kubectl apply -f k8s/authentication.yml
 
+minikube image load ozgurrkarakaya/gm-front-end:1.0.1
+kubectl apply -f k8s/front-end.yml
+
 ```
 
 ## Kubernetes troubleshooting:
@@ -176,4 +179,19 @@ kubectl delete svc broker-service mongo rabbitmq
 //Run postgres as a remote resource for k8s
 // at project folder run:
 docker compose -f postgres.yml up -d
+```
+
+## k8s test load balancer
+```
+// disable broker-service 
+kubectl delete svc broker-service
+//run as load balancer and expose broker-service
+kubectl expose deployment broker-service --type=LoadBalancer --port=8080 --target-port=8080
+//check result
+kubectl get svc
+//create tunnel via minikube
+minikube tunnel
+//update frontend
+after running front end 
+kubectl delete svc broker-service
 ```
