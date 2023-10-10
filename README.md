@@ -107,7 +107,7 @@ docker stack deploy -c swarm.yml myapp
 
 ```
 
-## Kubernetes installment: minikube & kubectl
+## Minikube installment: minikube & kubectl
 ```
 https://minikube.sigs.k8s.io/docs/start/
 brew install minikube
@@ -117,8 +117,6 @@ minikube start --node=2
 minikube status
 minikube stop
 minikube start
-
-
 
 kubectl get pods
 kubectl get pods -A
@@ -130,8 +128,6 @@ kubectl get pods -A
 //redirects to k8s dashboard at browser -- ctrl+c to stop
 minikube dashboard 
 ```
-
-
 
 ## Kubernetes config and run:
 ```
@@ -229,5 +225,11 @@ kubectl apply -f k8s/listener.yml
 ## k8s update services
 ```
 //scale replica to 2 , after that update image to new version
+```
+
+## Testing Microservices
+```
+// at authentication service, created setup_test.go and routes_test.go, run command
+go test -v .
 ```
 
