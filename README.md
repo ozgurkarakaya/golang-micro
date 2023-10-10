@@ -1,6 +1,10 @@
 # go-micro
 
-### RUN via Make
+#### Diagram
+
+<kbd>![](/others/images/gm-micro.png)</kbd>
+
+#### RUN via Make
 ```
     make up_build  //builds broker docker image
     make up        //runs broker container
@@ -9,7 +13,7 @@
     make down      //downs broker container
 ```
 
-### Protobuf
+#### Protobuf
 ```
 $brew install protobuf
 ```
@@ -24,7 +28,7 @@ go get google.golang.org/grpc
 go get google.golang.org/protobuf
 ```
 
-### Docker Commands
+#### Docker Commands
 ```
 // logger service: at logger service folder
 docker build -f Dockerfile -t ozgurrkarakaya/gm-logger-service:1.0.0 .
@@ -51,7 +55,7 @@ docker build -f Dockerfile -t ozgurrkarakaya/gm-front-end:1.0.1 .
 docker push ozgurrkarakaya/gm-front-end:1.0.1
 ```
 
-### Docker Swarm
+#### Docker Swarm
 ```
 //at project folder where swarm.yml exists
 docker swarm init
