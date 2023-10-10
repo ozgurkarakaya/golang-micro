@@ -107,7 +107,7 @@ docker stack deploy -c swarm.yml myapp
 
 ```
 
-## Kubernetes installment
+## Kubernetes installment: minikube & kubectl
 ```
 https://minikube.sigs.k8s.io/docs/start/
 brew install minikube
@@ -118,12 +118,20 @@ minikube status
 minikube stop
 minikube start
 
-minikube dashboard //redirects to k8s dashboard at browser -- ctrl+c to stop
+
 
 kubectl get pods
 kubectl get pods -A
 
 ```
+
+## Minikube dashboard
+```
+//redirects to k8s dashboard at browser -- ctrl+c to stop
+minikube dashboard 
+```
+
+
 
 ## Kubernetes config and run:
 ```
@@ -209,5 +217,17 @@ sudo vi /etc/hosts  // add line at the end  -> 127.0.0.1 front-end.info broker-s
 //run minikube at tunnel
 minikube tunnel
 // at browser to access front-end go to: http://front-end.info/
-
 ```
+
+## k8s scale resource
+```
+//one way is to scale using k8s dashboard -> deployment name -> edit
+//second way: update k8s/listener.yml, set replicas to 2 and run command
+kubectl apply -f k8s/listener.yml
+//third way: autoscale depending on the load via kubernetes config, master node, worker node configs
+```
+## k8s update services
+```
+//scale replica to 2 , after that update image to new version
+```
+
