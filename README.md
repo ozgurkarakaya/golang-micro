@@ -59,7 +59,7 @@ docker push ozgurrkarakaya/gm-front-end:1.0.1
 ```
 //at project folder where swarm.yml exists
 docker swarm init
-docker swarm join --token SWMTKN-1-5hy3y4700iu44ke64uo93osw3hqf5ndwrlynmognbgqrzbt55w-2ea1vsr7pjua47gitig31kfpu 192.168.65.4:2377
+docker swarm join --token
 
 //to get the token again
 docker swarm join-token worker
